@@ -11,7 +11,7 @@ class UsersController < ApplicationController
       redirect_to root_path
     else
       flash.now[:danger] = "ユーザー登録に失敗しました"
-      render
+      render :new
     end
   end
   

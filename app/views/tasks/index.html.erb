@@ -4,15 +4,16 @@
   <%= link_to "logout", logout_path, method: :delete, class: "btn btn-lg btn-primary" %>
   <%= link_to "タスクの追加", new_task_path %>
   <p>ユーザ名: <%= current_user.name %></p>
+  <ul> 
+    <% @tasks.each do |task| %>
+       <li><%= link_to task.id, task %> : <%= task.status %> &gt; <%= task.content %></li>
+    <% end %>
+  </ul>
+  <%= paginate @tasks %>
 <% else %>
   <%= link_to "sign up", signup_path, class: "btn btn-lg  btn-primary" %>
   <%= link_to "login", login_path,class: "btn btn-lg btn-primary" %>
 <% end %>
   
 
-  <ul> 
-    <% @tasks.each do |task| %>
-       <li><%= link_to task.id, task %> : <%= task.status %> &gt; <%= task.content %></li>
-    <% end %>
-  </ul>
-
+ 
